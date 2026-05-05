@@ -90,6 +90,16 @@
             border-radius: 2px;
         }
         
+        /* Category Title */
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 40px 0 30px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -241,178 +251,53 @@
         }
         
         /* Projects Section */
-        .project-item {
-            position: relative;
+        .project-card {
+            background: white;
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         
         .project-img {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
-            transition: var(--transition);
         }
         
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(58, 108, 244, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .card-body {
             padding: 20px;
-            opacity: 0;
-            transition: var(--transition);
         }
         
-        .project-item:hover .project-overlay {
-            opacity: 1;
-        }
-        
-        .project-item:hover .project-img {
-            transform: scale(1.1);
-        }
-        
-        .project-title {
-            color: white;
-            font-size: 1.5rem;
+        .card-title {
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
         
-        .project-desc {
-            color: white;
-            text-align: center;
-            margin-bottom: 20px;
+        .card-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
         
-        .project-btn {
-            color: white;
-            border: 2px solid white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-        
-        .project-btn:hover {
-            background: white;
-            color: var(--primary-color);
-        }
-        
-        /* Modal */
-        .modal-content {
-            border-radius: 15px;
-            overflow: hidden;
-        }
-        
-        .modal-header {
-            background: var(--primary-color);
-            color: white;
-        }
-        
-        .modal-close {
-            color: white;
-            opacity: 1;
-        }
-        
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
+        .btn-primary {
             background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-            border-radius: 3px;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: var(--transition);
         }
         
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border: 4px solid var(--primary-color);
-            border-radius: 50%;
-            top: 15px;
-            right: -13px;
-            z-index: 1;
-        }
-        
-        .left {
-            left: 0;
-        }
-        
-        .right {
-            left: 50%;
-        }
-        
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid white;
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent white;
-        }
-        
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid white;
-            border-width: 10px 10px 10px 0;
-            border-color: transparent white transparent transparent;
-        }
-        
-        .right::after {
-            left: -12px;
-        }
-        
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
-            position: relative;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-date {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
         
         /* Contact Section */
@@ -519,52 +404,33 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Responsive Design */
+        /* Timeline */
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Responsive */
         @media (max-width: 991.98px) {
             .hero-content h1 {
                 font-size: 2.8rem;
             }
-            
             .hero-content h2 {
                 font-size: 1.8rem;
             }
-            
             .about-img {
                 margin-right: 0;
                 margin-bottom: 30px;
                 max-width: 100%;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 18px;
-                right: auto;
-            }
-            
-            .left::before,
-            .right::before {
-                left: 60px;
-                border: medium solid white;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent white transparent transparent;
-            }
-            
-            .left::after,
-            .right::after {
-                left: 18px;
-            }
-            
-            .right {
-                left: 0;
             }
         }
         
@@ -572,13 +438,14 @@
             .hero-content h1 {
                 font-size: 2.3rem;
             }
-            
             .hero-content h2 {
                 font-size: 1.5rem;
             }
-            
             .section-title {
                 font-size: 1.8rem;
+            }
+            .category-title {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -593,24 +460,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">À propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Compétences</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">Expérience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="#home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -642,32 +497,13 @@
                     <h3>Créateur Multimédia Passionné</h3>
                     <p>Je suis un jeune professionnel dynamique et passionné par la création multimédia. Mes compétences en travail d'équipe et ma nature bavarde me permettent de collaborer efficacement sur divers projets créatifs.</p>
                     <p>Généreux de nature, j'aime partager mes connaissances et apprendre des autres. Je suis toujours à la recherche de nouveaux défis qui me permettront de développer mes compétences et d'élargir mes horizons.</p>
-                    
                     <div class="personal-info">
-                        <div class="info-item">
-                            <span>Nom :</span>
-                            <div>Yanis Mosbah</div>
-                        </div>
-                        <div class="info-item">
-                            <span>Email :</span>
-                            <div>Yanis.secours26@gmail.com</div>
-                        </div>
-                        <div class="info-item">
-                            <span>Téléphone :</span>
-                            <div>07 83 02 16 47</div>
-                        </div>
-                        <div class="info-item">
-                            <span>Nationalité :</span>
-                            <div>Français</div>
-                        </div>
-                        <div class="info-item">
-                            <span>Date de naissance :</span>
-                            <div>26 octobre 2007</div>
-                        </div>
-                        <div class="info-item">
-                            <span>Localisation :</span>
-                            <div>Nice, France</div>
-                        </div>
+                        <div class="info-item"><span>Nom :</span><div>Yanis Mosbah</div></div>
+                        <div class="info-item"><span>Email :</span><div>Yanis.secours26@gmail.com</div></div>
+                        <div class="info-item"><span>Téléphone :</span><div>07 83 02 16 47</div></div>
+                        <div class="info-item"><span>Nationalité :</span><div>Français</div></div>
+                        <div class="info-item"><span>Date de naissance :</span><div>26 octobre 2007</div></div>
+                        <div class="info-item"><span>Localisation :</span><div>Nice, France</div></div>
                     </div>
                 </div>
             </div>
@@ -678,729 +514,115 @@
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Mes compétences</h2>
-            
             <div class="row mb-5">
                 <div class="col-md-6">
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <h4>Dynamisme</h4>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <h4>Travail d'équipe</h4>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><div class="skill-info"><h4>Dynamisme</h4><span>95%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><h4>Travail d'équipe</h4><span>90%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <h4>Créativité</h4>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <h4>Communication</h4>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%;"></div>
-                        </div>
-                    </div>
+                    <div class="skill-item"><div class="skill-info"><h4>Créativité</h4><span>85%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div></div>
+                    <div class="skill-item"><div class="skill-info"><h4>Communication</h4><span>88%</span></div><div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div></div>
                 </div>
             </div>
-            
             <h3 class="text-center mb-5">Langues</h3>
             <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="language-item">
-                        <i class="fas fa-language"></i>
-                        <h4>Espagnol</h4>
-                        <p>Niveau B2 - Compétence professionnelle</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="language-item">
-                        <i class="fas fa-language"></i>
-                        <h4>Anglais</h4>
-                        <p>Niveau B1 - Vocabulaire du quotidien</p>
-                    </div>
-                </div>
+                <div class="col-md-6 mb-4"><div class="language-item"><i class="fas fa-language"></i><h4>Espagnol</h4><p>Niveau B2 - Compétence professionnelle</p></div></div>
+                <div class="col-md-6 mb-4"><div class="language-item"><i class="fas fa-language"></i><h4>Anglais</h4><p>Niveau B1 - Vocabulaire du quotidien</p></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
- <section id="projects" class="section-padding">
+    <!-- Projects Section - Réorganisée en 3 catégories -->
+    <section id="projects">
         <div class="container">
-            <div class="section-title">
-                <h2>Mes projets</h2>
-                <p>Quelques-unes de mes r alisations</p>
-            </div>
+            <h2 class="section-title">Mes projets</h2>
+            
+            <!-- CATÉGORIE 1 : B1 SISR -->
+            <h3 class="category-title"><i class="fas fa-network-wired me-2"></i>B1 SISR - Administration systèmes et réseaux</h3>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1veDPOSPqpBqd25r5LjoA29F1IzSws-8hts5-1YXA-5kQ0u5TEjDIwC2Y1ceKLUAoHXwAY1X5tsu5d0HW0D8yLeCqm4UMrCJDG9MyqR1d" class="project-img card-img-top" alt="Projet multim dia">
-                        <div class="card-body">
-                            <h5 class="card-title">TP 1 Angry Bird</h5>
-                            <p class="card-text">1er compte rendu en BTS SIO.</p>
-                            <a href="https://docs.google.com/document/d/19bTctcsWmoJRt7bVwwQePMNy3HXMcBkP2AJzCnh06jo/edit?tab=t.0" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRfdN-PfANiQUEPFa5-53ZKmuZixy6ojdAzSSgZtsDoZcuyYlCLG0_fGDgo1cFZVCSxn8hpIk-gF_WTUrVhMgvYJpjbCdqC74B3-bot2xu_IA" class="project-img card-img-top" alt="Projet design">
-                        <div class="card-body">
-                            <h5 class="card-title">TP Portfolio</h5>
-                            <p class="card-text">Développement d'un PortFolio en 3 heures.</p>
-                            <a href="https://docs.google.com/document/d/1MuoM42yi7laJ6mg-OcXPLlxhjMl8jfbYqIKRdVwOiOE/edit?tab=t.0" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_jEuQhusIdr81tveJOxDoWfIaIl1w97mQMg&s" class="project-img card-img-top" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TP Réseau</h5>
-                            <p class="card-text">Réparation de la connexion internet grâce à plusieurs outils.</p>
-                            <a href="https://docs.google.com/document/d/1CJ5yHHoUaDjQG4JpbXSBdye22ff8vTWCThTCBSmfqh4/edit?tab=t.0" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1veDPOSPqpBqd25r5LjoA29F1IzSws-8hts5-1YXA-5kQ0u5TEjDIwC2Y1ceKLUAoHXwAY1X5tsu5d0HW0D8yLeCqm4UMrCJDG9MyqR1d" class="project-img" alt="Angry Bird"><div class="card-body"><h5 class="card-title">TP 1 Angry Bird</h5><p class="card-text">1er compte rendu en BTS SIO.</p><a href="https://docs.google.com/document/d/19bTctcsWmoJRt7bVwwQePMNy3HXMcBkP2AJzCnh06jo/edit?tab=t.0" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://overclocking.com/wp-content/uploads/2021/04/OCCT.jpg" class="project-img" alt="Logiciel"><div class="card-body"><h5 class="card-title">TP Logiciel</h5><p class="card-text">Utilisation de divers logiciels de diagnostic.</p><a href="https://docs.google.com/document/d/1goV689zBCaxAZC32qdElKJkM2PqcXjKGOaj262SCmJA/edit?tab=t.0" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://cdn.futura-sciences.com/sources/images/qr/capture.jpg" class="project-img" alt="Capture écran"><div class="card-body"><h5 class="card-title">TP capture d'écran</h5><p class="card-text">Utilisation de logiciel de capture d'écran.</p><a href="https://docs.google.com/document/d/18daI8i0Tr_CoXv4Ii-3fCaQWoefxkGn068YfC9KMFpQ/edit?tab=t.0" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Command_Prompt_on_Windows_10_RTM.png" class="project-img" alt="CMD"><div class="card-body"><h5 class="card-title">TP 05 Le système d'exploitation</h5><p class="card-text">Utilisation et explication des commandes dans le CMD.</p><a href="https://docs.google.com/document/d/1kLtVyJWduSKLA2wIUZl7CMLDRC2Ssrup7AvML7FRWPg/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Command.com_Win8.png" class="project-img" alt="DOS"><div class="card-body"><h5 class="card-title">TP Commande DOS 2/2</h5><p class="card-text">Commandes DOS avancées.</p><a href="https://docs.google.com/document/d/1kLtVyJWduSKLA2wIUZl7CMLDRC2Ssrup7AvML7FRWPg/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://media.licdn.com/dms/image/v2/C560BAQEHxJrZ8gZ3MQ/company-logo_200_200/company-logo_200_200/0/1631356930047?e=2147483647&v=beta&t=_QsrOF9PAbXWf0O4hAvqHiaH9YqBBhjXnyzh6xlBdRE" class="project-img" alt="Techcorp"><div class="card-body"><h5 class="card-title">TP Techcorp</h5><p class="card-text">Projet d'entreprise Techcorp.</p><a href="https://docs.google.com/document/d/11_WvGt3I-f9uNENnGs065Z8sMbdTSM2naNs9kfd1IqQ/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://process.filestackapi.com/resize=width:700/pvgy3mhNQHKHpuosQzhi" class="project-img" alt="PHP"><div class="card-body"><h5 class="card-title">TP Bases PHP</h5><p class="card-text">Premiers pas en PHP.</p><a href="https://docs.google.com/document/d/1vUH82OopCdSg2Zd8zhCDqeC2sWNU8ol5amPGgTHlSa0/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://process.filestackapi.com/resize=width:700/pvgy3mhNQHKHpuosQzhi" class="project-img" alt="PHP"><div class="card-body"><h5 class="card-title">TP Programmer avec PHP</h5><p class="card-text">Programmation PHP avancée.</p><a href="https://docs.google.com/document/d/1t3GxjGd2TK0JR1wL907r7Zf5XHg7oVZ8ZK9CwwqGSak/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://process.filestackapi.com/resize=width:700/pvgy3mhNQHKHpuosQzhi" class="project-img" alt="PHP"><div class="card-body"><h5 class="card-title">TP Transmission de données (PHP)</h5><p class="card-text">Transmission de données entre pages PHP.</p><a href="#" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://i.ytimg.com/vi/5TfYG4dXR1s/hq720.jpg" class="project-img" alt="Users"><div class="card-body"><h5 class="card-title">TP Gestion des utilisateurs / Test PHP</h5><p class="card-text">Gestion utilisateurs et tests PHP.</p><a href="https://docs.google.com/document/d/1gCiVVnS2RIDHrlqWwWUW9mwJSi-deR4ewa4I1hAdVtU/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.artonik.com/GetImage.ashx?idImage=Images/Main_1045.png&w=660" class="project-img" alt="BDD"><div class="card-body"><h5 class="card-title">Atelier 6 La base de données</h5><p class="card-text">Gestion et création de bases de données.</p><a href="https://docs.google.com/document/d/18mqJJe_Mc2cvXSS93R2nDaF8YHC4BxgeljVsX4X0LwQ/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://learn.microsoft.com/fr-fr/ssms/visual-db-tools/media/design-database-diagrams-visual-database-tools/table-relationships.png" class="project-img" alt="BDD"><div class="card-body"><h5 class="card-title">BDD TD3 Leclerc</h5><p class="card-text">Modélisation de base de données.</p><a href="https://docs.google.com/document/d/12U9q6dQcszHry9_t1QYSWqnP3LRrIPKZaszygrpp1EU/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://overclocking.com/wp-content/uploads/2021/04/OCCT.jpg" class="project-img card-img-top" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TP Logiciel</h5>
-                            <p class="card-text">Utilisation de divers Logiciels Diagnostics.</p>
-                            <a href="https://docs.google.com/document/d/1goV689zBCaxAZC32qdElKJkM2PqcXjKGOaj262SCmJA/edit?tab=t.0" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
+
+            <!-- CATÉGORIE 2 : B3 CYBERSÉCURITÉ -->
+            <h3 class="category-title mt-4"><i class="fas fa-shield-alt me-2"></i>B3 Cybersécurité - Protection et RGPD</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://donnees-rgpd.fr/wp-content/uploads/2019/12/a-quoi-sert-registre-traitements.jpg" class="project-img" alt="RGPD"><div class="card-body"><h5 class="card-title">TD Cyber Traitement de données</h5><p class="card-text">Traitement des données et RGPD.</p><a href="https://docs.google.com/document/d/1lEm60f23QCB9BNY2C6Li8jGs196gvHYCMrgRhtjgvj4/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.cnil.fr/sites/default/files/styles/contenu_generique_visuel/public/thumbnails/image/00_logo-1.png?itok=bdT6-lUn" class="project-img" alt="PIA"><div class="card-body"><h5 class="card-title">TP PIA</h5><p class="card-text">Analyse d'impact sur la protection des données.</p><a href="https://docs.google.com/document/d/1I5Vx-btNIcQtW5fiVe51cRTEWoWcHMCNshjTCXKYTSM/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcode.gouv.fr%2Fsill%2Fdetail%3Fname%3DCNIL%2520PIA%2520%2528Privacy%2520Impact%2520Assessment%2529&psig=AOvVaw1tdcQhrBE8PU42qEvJgokE&ust=1763050934709000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPC1xdyC7ZADFQAAAAAdAAAAABAE" class="project-img" alt="PIA2"><div class="card-body"><h5 class="card-title">TP PIA 2</h5><p class="card-text">Suite de l'analyse d'impact.</p><a href="https://docs.google.com/document/d/1vYvkWY4bQXKtHbN1gPB_6fbr6CmOK_E5HVq3uOrLsx0/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.keepersecurity.com/assets/images/pages/threats/what-is-a-keylogger/keylogger-computer-iso.svg" class="project-img" alt="Keylogger"><div class="card-body"><h5 class="card-title">TP Keylogger</h5><p class="card-text">Compréhension des keyloggers.</p><a href="https://docs.google.com/document/d/1ALVC_BprsJOh90GO3eumVWHshhWHTn1zf5Nlh7DADl0/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.perenne-it.fr/wp-content/uploads/2021/11/mots_de_passe_img-1.jpg" class="project-img" alt="Mot de passe"><div class="card-body"><h5 class="card-title">TH3 CHP 4 TD1 Mot de passe sécurisé</h5><p class="card-text">Sécurisation des mots de passe.</p><a href="https://docs.google.com/document/d/16dqOd-WVuN5z0EmWph9hXYormVlTd8JBjfhzr7GCK2w/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="data:image/jpeg;base64,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" class="project-img" alt="Cyber"><div class="card-body"><h5 class="card-title">TD 2 Cybersécurité MaBanque</h5><p class="card-text">Sécurisation d'une application bancaire.</p><a href="https://docs.google.com/document/d/1OC-XcdY2iwJByK1sQBezt7F8rcAg-ggDbAATbNppXVs/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.informatiqueamerix.com/wp-content/uploads/2023/05/Informatique-Americ-Securite-informatique-BLOG.png" class="project-img" alt="Cyber"><div class="card-body"><h5 class="card-title">CH5 - TD2</h5><p class="card-text">Sécurité informatique.</p><a href="https://docs.google.com/document/d/1JNgi8ZQEhntcVvypKwFhHDeoo5qZe-54-4s246fRxLc/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://doulliez.com/wp-content/uploads/2018/05/s%C3%A9curit%C3%A9-informatique.png" class="project-img" alt="Protection"><div class="card-body"><h5 class="card-title">Atelier 5 : protection du serveur WEB</h5><p class="card-text">Sécurisation d'un serveur web.</p><a href="https://docs.google.com/document/d/1-p1qEMLeggw0OrJqKmq06TiyAg6J0zTRmLUBV-f6sKs/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://doulliez.com/wp-content/uploads/2018/05/s%C3%A9curit%C3%A9-informatique.png" class="project-img" alt="Protection"><div class="card-body"><h5 class="card-title">TD 08 Vérifier l'efficacité de la protection</h5><p class="card-text">Test de sécurité.</p><a href="https://docs.google.com/document/d/1_5z59wzHDfi9m_GtK90rbS67l8L0_8W9kT68q1r2EKc/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+            </div>
+
+            <!-- CATÉGORIE 3 : ATELIERS ET DÉVELOPPEMENT WEB -->
+            <h3 class="category-title mt-4"><i class="fas fa-laptop-code me-2"></i>Ateliers et Développement Web</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRfdN-PfANiQUEPFa5-53ZKmuZixy6ojdAzSSgZtsDoZcuyYlCLG0_fGDgo1cFZVCSxn8hpIk-gF_WTUrVhMgvYJpjbCdqC74B3-bot2xu_IA" class="project-img" alt="Portfolio"><div class="card-body"><h5 class="card-title">TP Portfolio</h5><p class="card-text">Développement d'un Portfolio en 3 heures.</p><a href="https://docs.google.com/document/d/1MuoM42yi7laJ6mg-OcXPLlxhjMl8jfbYqIKRdVwOiOE/edit?tab=t.0" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://fr.w3docs.com/uploads/media/default/0001/05/805cddb75d8fdc035886bc8d78487eef8b3845bb.png" class="project-img" alt="HTML"><div class="card-body"><h5 class="card-title">TP HTML</h5><p class="card-text">Déploiement d'un CV HTML.</p><a href="https://docs.google.com/document/d/1wPjZcYPvXcO7ap_03rDcI712qFlPQhSUCSHMSROb49s/edit?tab=t.0" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.anthedesign.fr/wp-content/uploads/2022/05/css.jpg" class="project-img" alt="CSS"><div class="card-body"><h5 class="card-title">TD 1 CSS</h5><p class="card-text">Premiers pas en CSS.</p><a href="https://docs.google.com/document/d/1DlVlGH8y1zuSKWHCt9cX61MgOxh_RyYOvEFcV6jaK_I/edit?tab=t.0#heading=h.z9g9g587ua80" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.anthedesign.fr/wp-content/uploads/2022/05/css.jpg" class="project-img" alt="CSS"><div class="card-body"><h5 class="card-title">TD 2 CSS</h5><p class="card-text">Suite du CSS.</p><a href="https://docs.google.com/document/d/1yBxi1ePzqAjl3c9AS1bJ8rsI-6XbtbzZWa4soVMo818/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Official_CSS_Logo.svg/langfr-250px-Official_CSS_Logo.svg.png" class="project-img" alt="CSS"><div class="card-body"><h5 class="card-title">TD 3 CSS</h5><p class="card-text">Fin du CSS.</p><a href="https://docs.google.com/document/d/1enYWqqiE8NEHLcCMbGpenV9xjL7ZtOQM7ABW7DT-GaA/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://cours.ebsi.umontreal.ca/sci6005/res/dbtext_formulaire_editeur.jpg" class="project-img" alt="Formulaire"><div class="card-body"><h5 class="card-title">TP Formulaire</h5><p class="card-text">Création de formulaires HTML.</p><a href="https://docs.google.com/document/d/1XrqtTFJA4Lh9lOYLvJBLvH28-S4fMK-iJlDKXULiqx4/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="data:image/png;base64,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" class="project-img" alt="JS"><div class="card-body"><h5 class="card-title">TD Javascript</h5><p class="card-text">Introduction à JavaScript.</p><a href="https://docs.google.com/document/d/1TX_EHGur4K9kFqlkmBolc3w01LOg1rxNgBCD5Lvq_zE/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtl1vOtK05fujc84bp3JxcrZCtPz_PTZYNsQ&s" class="project-img" alt="Site vitrine"><div class="card-body"><h5 class="card-title">Atelier 1 Site vitrine (option SISR)</h5><p class="card-text">Création d'un site vitrine.</p><a href="https://docs.google.com/document/d/1DnBBGJ49mTNpkQmHlUXS0pTniJgVVxFeXUP8gpp4C00/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQpApFsE_71ZDmiDOkyrLD6YnruXIUnHR6Iw&s" class="project-img" alt="Hébergement"><div class="card-body"><h5 class="card-title">Atelier 2 L'hébergement du site (option SISR)</h5><p class="card-text">Mise en ligne d'un site web.</p><a href="https://docs.google.com/document/d/1kVLh3m5NNcN2eX_GHZPmCNmLvzM4Z1uCLc-3j_NqnNA/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://mickael-maury.fr/wp-content/uploads/2019/09/Migration-site-internet-600x600.jpg.webp" class="project-img" alt="Transfert"><div class="card-body"><h5 class="card-title">Atelier 3 : Transfert du site</h5><p class="card-text">Migration d'un site web.</p><a href="https://docs.google.com/document/d/1rUUrNq9KLhvVihosUEt9sIYmx7JXtP8dSYa_0nq9Y3M/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://ircf.fr/files/2021/03/sauvegarde.jpg" class="project-img" alt="Sauvegarde"><div class="card-body"><h5 class="card-title">Atelier 4 : Gestionnaire de sauvegardes</h5><p class="card-text">Mise en place de sauvegardes.</p><a href="https://docs.google.com/document/d/1It8OC1_OYMtu7r6u9V4N1IfdEohrVMcu3QjsxdyKP4U/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Compingles2.png/250px-Compingles2.png" class="project-img" alt="NAS"><div class="card-body"><h5 class="card-title">TD Serveur NAS</h5><p class="card-text">Configuration d'un serveur NAS.</p><a href="https://docs.google.com/document/d/1Fwu2KxDAJQUyTjuH7Zghm8FxN3z1t2GLuD0SRlCaUCU/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/CARAT_2012_121109-N-QU339-010.jpg/250px-CARAT_2012_121109-N-QU339-010.jpg" class="project-img" alt="Shifumi"><div class="card-body"><h5 class="card-title">TP 4 Shifumi</h5><p class="card-text">Création d'un jeu Shifumi sur Eclipse.</p><a href="https://docs.google.com/document/d/1p4RWUuyofESZRKN-Frq5xFOqcR94N99KOqr5dr4FrlQ/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://media.istockphoto.com/id/1418413324/fr/vectoriel/bataille-navale.jpg?s=612x612&w=0&k=20&c=EWLS0bLO-rSnULulXGagYMVEfsg_ZWZwFGKttwz6uZk=" class="project-img" alt="Bataille navale"><div class="card-body"><h5 class="card-title">TP Bataille navale</h5><p class="card-text">Jeu de bataille navale en Java.</p><a href="https://docs.google.com/document/d/1Pvk_-HVfIdyGUELMseOfAjDs5SHJiSW_8Uj_IawVv1Q/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/250px-Java_Logo.svg.png" class="project-img" alt="Java"><div class="card-body"><h5 class="card-title">TP JAVA</h5><p class="card-text">Mes premiers pas en Java.</p><a href="https://docs.google.com/document/d/1Ne-F2hIKMYYfT_mk3UntMgwlg9DC0aegBOOowZE7lKI/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/250px-Java_Logo.svg.png" class="project-img" alt="Java"><div class="card-body"><h5 class="card-title">TP JAVA 2</h5><p class="card-text">Suite Java.</p><a href="https://docs.google.com/document/d/1wQgRPGXEBHs2Efz8csxvxRbBMrxTtJYIT44s3BHgvOg/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2phdmEtY29kZS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgyOH0sInRvRm9ybWF0IjoiYXZpZiJ9fQ==" class="project-img" alt="Java"><div class="card-body"><h5 class="card-title">TP 5/5 Bis</h5><p class="card-text">Suite TP Java.</p><a href="https://docs.google.com/document/d/1mU44bPXJJDYJNR00ZhlwOeYNtDoolT2vz5opjb-uVXc/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.wimi-teamwork.com/static/medias/b1a31e54125b6b1d05661db7bad7bdbf.png" class="project-img" alt="Jeu de rôle"><div class="card-body"><h5 class="card-title">TD Jeu de rôle</h5><p class="card-text">Analyse de données.</p><a href="https://docs.google.com/document/d/1qt9FTWbMItcFy7GSCbTh-ELjIqgHTGPgyyo-wcfofeI/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://old.framalibre.org/sites/default/files/lifting.png" class="project-img" alt="MCD"><div class="card-body"><h5 class="card-title">TP Analyse SI MCD</h5><p class="card-text">Modélisation de données.</p><a href="https://docs.google.com/document/d/1xsXYkuy9ipasDrvVzysajoROeZ3v3XZOwYheXOSY3Nk/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://framalibre.org/images/logo/AnalyseSI.png" class="project-img" alt="MRD"><div class="card-body"><h5 class="card-title">TP Analyse SI MRD</h5><p class="card-text">Modélisation MRD.</p><a href="https://docs.google.com/document/d/1YjPYCs53u-i0Q6oL4cpsYCaPwrl_B9K6iur7mZSb94Q/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.cometoparis.com/data/product/image/917.jpg?ver=1675418153" class="project-img" alt="ZOO"><div class="card-body"><h5 class="card-title">TD ZOO</h5><p class="card-text">Gestion d'un zoo en base de données.</p><a href="https://docs.google.com/document/d/1KHZzbiw95R-d9P9_jeXRLsNyAiEEWhGCM_8YNyU7xQ0/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.kbcrawl.com/wp-content/uploads/2019/01/la-veille-technologique.jpg" class="project-img" alt="Veille"><div class="card-body"><h5 class="card-title">Veille technologique</h5><p class="card-text">Veille sur les nouvelles technologies.</p><a href="https://drive.google.com/file/d/1nhi8zOjMjdraX1UvkXGMTsRZwGM7XW4z/view?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.linuxadictos.com/wp-content/uploads/script-linux-1.jpg" class="project-img" alt="Linux"><div class="card-body"><h5 class="card-title">TP Scénario Linux</h5><p class="card-text">Administration Linux.</p><a href="https://docs.google.com/document/d/1Dq1gUiskVT3707h6GHmQwRBeGBEliLGeswmXGXaLNHY/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://user.oc-static.com/upload/2018/10/02/15384920330272_01.png" class="project-img" alt="Prise de contrôle"><div class="card-body"><h5 class="card-title">TP 01 Prise de contrôle à Distance</h5><p class="card-text">Prise de contrôle à distance.</p><a href="https://docs.google.com/document/d/1YGzhhcZskG-OiGrjMzabRr78WpBsXY-SfHgYCsEfMQk/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://techinclic.fr/images/articles/comment-repartitionner-partitionner-le-disque-dur-externe-jpg" class="project-img" alt="Partitionnement"><div class="card-body"><h5 class="card-title">TP 02 Partitionnement des disques durs</h5><p class="card-text">Gestion des partitions.</p><a href="https://docs.google.com/document/d/1_igzbHni8qcFCqyxu-e_9tiXEqmCoCCakKk_Ov9JrPI/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://clonezilla.fr/wp-content/uploads/sites/42/clonezilla-clonage-de-pc2.jpg" class="project-img" alt="Clonage"><div class="card-body"><h5 class="card-title">TP 03 Clonage Partie 1 et 2</h5><p class="card-text">Clonage de disques.</p><a href="https://docs.google.com/document/d/1Kpk6mRniftzDlJBvg9xCRfWXni9bNFzOg5sTZrMCUhw/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://play-lh.googleusercontent.com/KfSXnrNMIUgbTq4t1X4zwipG8f252SF4OtJY8TIPsy1fLAX791z75ydRlZcBGDrjr6c" class="project-img" alt="Wake on Lan"><div class="card-body"><h5 class="card-title">TP 04 Wake on Lan</h5><p class="card-text">Configuration Wake-on-LAN.</p><a href="https://docs.google.com/document/d/1gHa1NW0DXkFNXA9KJgIOjnyrwFf3qmYg7J4tf_31Ie0/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl9vuw38DaRmlXXRiKAeUyHk_e9CtHgieUIQ&s" class="project-img" alt="HFS"><div class="card-body"><h5 class="card-title">TP 05 HFS</h5><p class="card-text">Système de fichiers HFS.</p><a href="https://docs.google.com/document/d/1Nh2xcQs7HELFbAijuE00t6nG0bweMHX46kT4ogEPbQg/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://cyberhoot.com/wp-content/uploads/2022/06/fs_sito_img_activedirectory-page.png" class="project-img" alt="Active Directory"><div class="card-body"><h5 class="card-title">TP Active Directory</h5><p class="card-text">Configuration Active Directory.</p><a href="https://docs.google.com/document/d/1Taey38t2QfItKafzhxmHXUokFur1p70TbG6iHWrl4OI/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.lecoindunet.com/wp-content/uploads/2022/01/windows-proprietes-systeme-modifier.png" class="project-img" alt="Connexion domaine"><div class="card-body"><h5 class="card-title">TP Connexion domaine</h5><p class="card-text">Connexion à un domaine Windows.</p><a href="https://docs.google.com/document/d/1ADdxGtsxDCIlfy0IwgcTjGMovP7FC8Lkgu2-WmD1a9g/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://doulliez.com/wp-content/uploads/2018/05/s%C3%A9curit%C3%A9-informatique.png" class="project-img" alt="Schéma réseau"><div class="card-body"><h5 class="card-title">Schéma réseau + Tableau IP</h5><p class="card-text">Plan d'adressage IP.</p><a href="https://docs.google.com/document/d/1vlkoZDviRgO5Qfnn9mQ6qF-FiG40ubC_BdEPB6BnST8/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://assistouest.fr/wp-content/uploads/2024/12/Les-meilleurs-disques-durs-externes-SSD-et-HDD-300x200.jpg.webp" class="project-img" alt="Kit technicien"><div class="card-body"><h5 class="card-title">TP Kit du technicien informatique</h5><p class="card-text">Outils du technicien.</p><a href="https://docs.google.com/document/d/1DnVg5gdUVQ_uT05NNLmJ4lb4cnCR7XSKn8oepIAYjh0/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://neptunet.fr/wp-content/uploads/2019/09/dhcp_schema.png" class="project-img" alt="DHCP"><div class="card-body"><h5 class="card-title">TP 4 Rôle DHCP</h5><p class="card-text">Configuration serveur DHCP.</p><a href="https://docs.google.com/document/d/1VynxVf41DS_gp7cl0iDYl0IeLk-m_FXWGMpkZC_iOVM/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://upload.wikimedia.org/wikipedia/fr/8/8c/Deep_freeze.png" class="project-img" alt="Deepfreeze"><div class="card-body"><h5 class="card-title">TP Deepfreeze</h5><p class="card-text">Protection de poste.</p><a href="https://docs.google.com/document/d/1jTwYSsSGsoJjMX-VF6tIIbztO16AWq2E9ARjpWUbD14/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://www.riskinsight-wavestone.com/wp-content/uploads/2013/10/a-chaque-usage-son-avatar1.png" class="project-img" alt="Identité numérique"><div class="card-body"><h5 class="card-title">TP Identité numérique</h5><p class="card-text">Protection de l'identité numérique.</p><a href="https://docs.google.com/document/d/1PkfM5V0Dm81ByFflU8bPbqTyBsL-uTwfa_ok0XiUrAM/edit?usp=sharing" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+                <div class="col-lg-4 col-md-6"><div class="project-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_jEuQhusIdr81tveJOxDoWfIaIl1w97mQMg&s" class="project-img" alt="Réseau"><div class="card-body"><h5 class="card-title">TP Réseau</h5><p class="card-text">Réparation de connexion internet.</p><a href="https://docs.google.com/document/d/1CJ5yHHoUaDjQG4JpbXSBdye22ff8vTWCThTCBSmfqh4/edit?tab=t.0" class="btn btn-sm btn-primary" target="_blank">Voir le projet</a></div></div></div>
+            </div>
         </div>
-        <div class="card-body">
-                            <h5 class="card-title">TP JAVA</h5>
-                            <p class="card-text">Mes premiers pas en Java.</p>
-                            <a href="https://docs.google.com/document/d/1Ne-F2hIKMYYfT_mk3UntMgwlg9DC0aegBOOowZE7lKI/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://cdn.futura-sciences.com/sources/images/qr/capture.jpg" class="project-img card-img-top" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TP capture d'écran</h5>
-                            <p class="card-text">Utilisation de logiciel de capture d'écran.</p>
-                            <a href="https://docs.google.com/document/d/18daI8i0Tr_CoXv4Ii-3fCaQWoefxkGn068YfC9KMFpQ/edit?tab=t.0" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://fr.w3docs.com/uploads/media/default/0001/05/805cddb75d8fdc035886bc8d78487eef8b3845bb.png" class="project-img card-img-top" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TP HTML</h5>
-                            <p class="card-text">Déploiement d'un cv HTML.</p>
-                            <a href="https://docs.google.com/document/d/1wPjZcYPvXcO7ap_03rDcI712qFlPQhSUCSHMSROb49s/edit?tab=t.0" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://donnees-rgpd.fr/wp-content/uploads/2019/12/a-quoi-sert-registre-traitements.jpg" class="project-img card-img-top" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TD Cyber Traitement de données</h5>
-                            <p class="card-text">S.</p>
-                            <a href="https://docs.google.com/document/d/1lEm60f23QCB9BNY2C6Li8jGs196gvHYCMrgRhtjgvj4/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/250px-Java_Logo.svg.png" class="project-img card-img-top" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TP JAVA 2</h5>
-                            <p class="card-text">Continuer JAVA.</p>
-                            <a href="https://docs.google.com/document/d/1wQgRPGXEBHs2Efz8csxvxRbBMrxTtJYIT44s3BHgvOg/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div> 
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Command_Prompt_on_Windows_10_RTM.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TP 05 Le système d'exploitation</h5>
-                            <p class="card-text">Utilisation et explication des différentes commandes dans le CMD.</p>
-                            <a href="https://docs.google.com/document/d/1kLtVyJWduSKLA2wIUZl7CMLDRC2Ssrup7AvML7FRWPg/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/CARAT_2012_121109-N-QU339-010.jpg/250px-CARAT_2012_121109-N-QU339-010.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TP 4 Shifumi</h5>
-                            <p class="card-text">Création d'un jeu shifumi sur Eclipse.</p>
-                            <a href="https://docs.google.com/document/d/1p4RWUuyofESZRKN-Frq5xFOqcR94N99KOqr5dr4FrlQ/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div> 
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.anthedesign.fr/wp-content/uploads/2022/05/css.jpg" class="project-img card-img-top" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title">TD 1 CSS</h5>
-                            <p class="card-text">Continuer le HTML Par le CSS.</p>
-                            <a href="https://docs.google.com/document/d/1DlVlGH8y1zuSKWHCt9cX61MgOxh_RyYOvEFcV6jaK_I/edit?tab=t.0#heading=h.z9g9g587ua80" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.anthedesign.fr/wp-content/uploads/2022/05/css.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD 2 CSS </h5>
-                            <p class="card-text">On continue CSS.</p>
-                            <a href="https://docs.google.com/document/d/1yBxi1ePzqAjl3c9AS1bJ8rsI-6XbtbzZWa4soVMo818/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div> 
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Official_CSS_Logo.svg/langfr-250px-Official_CSS_Logo.svg.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD 3 CSS </h5>
-                            <p class="card-text">Fin du CSS.</p>
-                            <a href="https://docs.google.com/document/d/1enYWqqiE8NEHLcCMbGpenV9xjL7ZtOQM7ABW7DT-GaA/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div> 
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Compingles2.png/250px-Compingles2.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD Serveur Nas </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1Fwu2KxDAJQUyTjuH7Zghm8FxN3z1t2GLuD0SRlCaUCU/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Command.com_Win8.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp5 Commande DOS 2/2 </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1kLtVyJWduSKLA2wIUZl7CMLDRC2Ssrup7AvML7FRWPg/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.cnil.fr/sites/default/files/styles/contenu_generique_visuel/public/thumbnails/image/00_logo-1.png?itok=bdT6-lUn" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp PIA  </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1I5Vx-btNIcQtW5fiVe51cRTEWoWcHMCNshjTCXKYTSM/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://media.licdn.com/dms/image/v2/C560BAQEHxJrZ8gZ3MQ/company-logo_200_200/company-logo_200_200/0/1631356930047?e=2147483647&v=beta&t=_QsrOF9PAbXWf0O4hAvqHiaH9YqBBhjXnyzh6xlBdRE" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp Techcorp </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/11_WvGt3I-f9uNENnGs065Z8sMbdTSM2naNs9kfd1IqQ/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2phdmEtY29kZS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgyOH0sInRvRm9ybWF0IjoiYXZpZiJ9fQ==" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp 5/5 Bis </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1mU44bPXJJDYJNR00ZhlwOeYNtDoolT2vz5opjb-uVXc/edit?usp=sharing" class="btn btn-sm btn-primary">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://cours.ebsi.umontreal.ca/sci6005/res/dbtext_formulaire_editeur.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp Formulaire </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1XrqtTFJA4Lh9lOYLvJBLvH28-S4fMK-iJlDKXULiqx4/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcode.gouv.fr%2Fsill%2Fdetail%3Fname%3DCNIL%2520PIA%2520%2528Privacy%2520Impact%2520Assessment%2529&psig=AOvVaw1tdcQhrBE8PU42qEvJgokE&ust=1763050934709000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPC1xdyC7ZADFQAAAAAdAAAAABAE" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp PIA 2 </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1vYvkWY4bQXKtHbN1gPB_6fbr6CmOK_E5HVq3uOrLsx0/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://media.istockphoto.com/id/1418413324/fr/vectoriel/bataille-navale.jpg?s=612x612&w=0&k=20&c=EWLS0bLO-rSnULulXGagYMVEfsg_ZWZwFGKttwz6uZk=" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp Bataille navale</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1Pvk_-HVfIdyGUELMseOfAjDs5SHJiSW_8Uj_IawVv1Q/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.riskinsight-wavestone.com/wp-content/uploads/2013/10/a-chaque-usage-son-avatar1.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Tp identité numérique</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1PkfM5V0Dm81ByFflU8bPbqTyBsL-uTwfa_ok0XiUrAM/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.wimi-teamwork.com/static/medias/b1a31e54125b6b1d05661db7bad7bdbf.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD Jeu de role</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1qt9FTWbMItcFy7GSCbTh-ELjIqgHTGPgyyo-wcfofeI/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://old.framalibre.org/sites/default/files/lifting.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Analyse SI MCD</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1xsXYkuy9ipasDrvVzysajoROeZ3v3XZOwYheXOSY3Nk/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="data:image/png;base64,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"Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD Javascript</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1TX_EHGur4K9kFqlkmBolc3w01LOg1rxNgBCD5Lvq_zE/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="data:image/jpeg;base64,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" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD 2 Cybérsécurité MaBanque </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1OC-XcdY2iwJByK1sQBezt7F8rcAg-ggDbAATbNppXVs/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.perenne-it.fr/wp-content/uploads/2021/11/mots_de_passe_img-1.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TH3 CHP 4 TD 1 Mot de passe sécurisé</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/16dqOd-WVuN5z0EmWph9hXYormVlTd8JBjfhzr7GCK2w/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://framalibre.org/images/logo/AnalyseSI.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Analyse SI MRD</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1YjPYCs53u-i0Q6oL4cpsYCaPwrl_B9K6iur7mZSb94Q/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.cometoparis.com/data/product/image/917.jpg?ver=1675418153" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD ZOO</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1KHZzbiw95R-d9P9_jeXRLsNyAiEEWhGCM_8YNyU7xQ0/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtl1vOtK05fujc84bp3JxcrZCtPz_PTZYNsQ&s" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Atelier 1 Site vitrine (option SISR) </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1DnBBGJ49mTNpkQmHlUXS0pTniJgVVxFeXUP8gpp4C00/edit?usp=sharing 
-                                ">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.kbcrawl.com/wp-content/uploads/2019/01/la-veille-technologique.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Veille technologique </h5>
-                            <p class="card-text"></p>
-                            <a href="https://drive.google.com/file/d/1nhi8zOjMjdraX1UvkXGMTsRZwGM7XW4z/view?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQpApFsE_71ZDmiDOkyrLD6YnruXIUnHR6Iw&s" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Atelier 2 L'hébergement du site (option SISR) </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1kVLh3m5NNcN2eX_GHZPmCNmLvzM4Z1uCLc-3j_NqnNA/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.linuxadictos.com/wp-content/uploads/script-linux-1.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Scénario Linux </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1Dq1gUiskVT3707h6GHmQwRBeGBEliLGeswmXGXaLNHY/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://user.oc-static.com/upload/2018/10/02/15384920330272_01.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP 01 Prise de controle à Distance </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1YGzhhcZskG-OiGrjMzabRr78WpBsXY-SfHgYCsEfMQk/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://techinclic.fr/images/articles/comment-repartitionner-partitionner-le-disque-dur-externe-jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP 02 Pärtitionnement des disques durs </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1_igzbHni8qcFCqyxu-e_9tiXEqmCoCCakKk_Ov9JrPI/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://clonezilla.fr/wp-content/uploads/sites/42/clonezilla-clonage-de-pc2.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP 03 Clonage Partie 1 et 2 </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1Kpk6mRniftzDlJBvg9xCRfWXni9bNFzOg5sTZrMCUhw/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://play-lh.googleusercontent.com/KfSXnrNMIUgbTq4t1X4zwipG8f252SF4OtJY8TIPsy1fLAX791z75ydRlZcBGDrjr6c" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP 04 Wake on Lan </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1gHa1NW0DXkFNXA9KJgIOjnyrwFf3qmYg7J4tf_31Ie0/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://learn.microsoft.com/fr-fr/ssms/visual-db-tools/media/design-database-diagrams-visual-database-tools/table-relationships.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> BDD TD3 Leclerc </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/12U9q6dQcszHry9_t1QYSWqnP3LRrIPKZaszygrpp1EU/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://ircf.fr/files/2021/03/sauvegarde.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Atelier 4 : Gestionnaire de sauvegardes</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1It8OC1_OYMtu7r6u9V4N1IfdEohrVMcu3QjsxdyKP4U/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl9vuw38DaRmlXXRiKAeUyHk_e9CtHgieUIQ&s" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP 05 HFS</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1Nh2xcQs7HELFbAijuE00t6nG0bweMHX46kT4ogEPbQg/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://www.informatiqueamerix.com/wp-content/uploads/2023/05/Informatique-Amerix-Securite-informatique-BLOG.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> CH5 - TD2</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1JNgi8ZQEhntcVvypKwFhHDeoo5qZe-54-4s246fRxLc/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://mickael-maury.fr/wp-content/uploads/2019/09/Migration-site-internet-600x600.jpg.webp" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Atelier 3 : Transfert du site </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1rUUrNq9KLhvVihosUEt9sIYmx7JXtP8dSYa_0nq9Y3M/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <img src="https://cyberhoot.com/wp-content/uploads/2022/06/fs_sito_img_activedirectory-page.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP active directory</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1Taey38t2QfItKafzhxmHXUokFur1p70TbG6iHWrl4OI/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                    <div class="project-card">
-                        <img src="https://www.keepersecurity.com/assets/images/pages/threats/what-is-a-keylogger/keylogger-computer-iso.svg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Key logger</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1ALVC_BprsJOh90GO3eumVWHshhWHTn1zf5Nlh7DADl0/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://www.lecoindunet.com/wp-content/uploads/2022/01/windows-proprietes-systeme-modifier.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP connexion domaine</h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1ADdxGtsxDCIlfy0IwgcTjGMovP7FC8Lkgu2-WmD1a9g/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                <div class="project-card">
-                        <img src="https://doulliez.com/wp-content/uploads/2018/05/s%C3%A9curit%C3%A9-informatique.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Atelier 5 : protection du serveur WEB </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1-p1qEMLeggw0OrJqKmq06TiyAg6J0zTRmLUBV-f6sKs/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://doulliez.com/wp-content/uploads/2018/05/s%C3%A9curit%C3%A9-informatique.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Schéma réseau + Tableau IP </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1vlkoZDviRgO5Qfnn9mQ6qF-FiG40ubC_BdEPB6BnST8/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://assistouest.fr/wp-content/uploads/2024/12/Les-meilleurs-disques-durs-externes-SSD-et-HDD-300x200.jpg.webp" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP kit du technicien informatique </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1DnVg5gdUVQ_uT05NNLmJ4lb4cnCR7XSKn8oepIAYjh0/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://www.oci.fr/wp-content/uploads/2024/07/www.oci.fr-cybersecurite-5-erreurs-a-eviter-pour-proteger-votre-entreprise-www.oci-.fr-cybersecurite-5-erreurs-a-eviter-pour-proteger-votre-entreprise-miniatures-articles.jpg" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TD 08 Vérifier l'efficacité de la protection </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1_5z59wzHDfi9m_GtK90rbS67l8L0_8W9kT68q1r2EKc/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                   <div class="project-card">
-                        <img src="https://neptunet.fr/wp-content/uploads/2019/09/dhcp_schema.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP 4 Role DHCP </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1VynxVf41DS_gp7cl0iDYl0IeLk-m_FXWGMpkZC_iOVM/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/fr/8/8c/Deep_freeze.png" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP16 Deepfreeze </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1jTwYSsSGsoJjMX-VF6tIIbztO16AWq2E9ARjpWUbD14/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://www.artonik.com/GetImage.ashx?idImage=Images/Main_1045.png&w=660" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> Atelier 6 La base de donées </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/18mqJJe_Mc2cvXSS93R2nDaF8YHC4BxgeljVsX4X0LwQ/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://process.filestackapi.com/resize=width:700/pvgy3mhNQHKHpuosQzhi" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Bases PHP </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1vUH82OopCdSg2Zd8zhCDqeC2sWNU8ol5amPGgTHlSa0/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://process.filestackapi.com/resize=width:700/pvgy3mhNQHKHpuosQzhi" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Programmer avec PHP </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1t3GxjGd2TK0JR1wL907r7Zf5XHg7oVZ8ZK9CwwqGSak/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                  <div class="project-card">
-                        <img src="https://process.filestackapi.com/resize=width:700/pvgy3mhNQHKHpuosQzhi" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Transmissions de données entre pages (PHP) </h5>
-                            <p class="card-text"></p>
-                            <a href="">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="project-card">
-                        <img src="https://i.ytimg.com/vi/5TfYG4dXR1s/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBSU5XXTFoD16mPovM6FoscsCSwMA" alt="Projet  quipe">
-                        <div class="card-body">
-                            <h5 class="card-title"> TP Gestion des users / Test sur php  </h5>
-                            <p class="card-text"></p>
-                            <a href="https://docs.google.com/document/d/1gCiVVnS2RIDHrlqWwWUW9mwJSi-deR4ewa4I1hAdVtU/edit?usp=sharing">Voir le projet</a>
-                        </div>
-                    </div>
-                 </div>
-                 
     </section>
-
-
-    <!-- Project Modals -->
-    <div class="modal fade" id="projectModal1" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Design Web Moderne</h5>
-                    <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Projet 1" class="img-fluid mb-4">
-                    <h4>Description du projet</h4>
-                    <p>Ce projet consistait à concevoir une interface utilisateur moderne et responsive pour un site e-commerce spécialisé dans les produits artisanaux. L'objectif était de créer une expérience utilisateur fluide et intuitive tout en mettant en valeur les produits.</p>
-                    <h4>Technologies utilisées</h4>
-                    <ul>
-                        <li>HTML5, CSS3, JavaScript</li>
-                        <li>Bootstrap 5</li>
-                        <li>Adobe Photoshop</li>
-                        <li>Adobe XD pour le prototypage</li>
-                    </ul>
-                    <h4>Résultats</h4>
-                    <p>Le design final a permis une augmentation de 35% du taux de conversion et une réduction de 20% du taux de rebond.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="projectModal2" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Application Mobile</h5>
-                    <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80" alt="Projet 2" class="img-fluid mb-4">
-                    <h4>Description du projet</h4>
-                    <p>Développement d'une application mobile innovante pour la gestion des tâches quotidiennes avec des fonctionnalités avancées de collaboration d'équipe et de synchronisation cloud.</p>
-                    <h4>Technologies utilisées</h4>
-                    <ul>
-                        <li>React Native</li>
-                        <li>Node.js</li>
-                        <li>MongoDB</li>
-                        <li>AWS S3</li>
-                    </ul>
-                    <h4>Résultats</h4>
-                    <p>L'application a été téléchargée plus de 50 000 fois et a obtenu une note moyenne de 4.7 étoiles sur les stores d'applications.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="projectModal3" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Campagne Publicitaire</h5>
-                    <button type="button" class="btn-close modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Projet 3" class="img-fluid mb-4">
-                    <h4>Description du projet</h4>
-                    <p>Conception et mise en œuvre d'une campagne publicitaire complète pour le lancement d'une nouvelle marque de vêtements éco-responsables. La campagne incluait des supports print, digital et des réseaux sociaux.</p>
-                    <h4>Technologies utilisées</h4>
-                    <ul>
-                        <li>Adobe Creative Suite</li>
-                        <li>Analytics</li>
-                        <li>Stratégie de contenu</li>
-                        <li>Planification média</li>
-                    </ul>
-                    <h4>Résultats</h4>
-                    <p>La campagne a généré plus de 200 000 impressions et a contribué à atteindre 150% de l'objectif de ventes initial pour le premier trimestre.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Mon parcours</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="timeline-content" style="margin-bottom: 30px;">
                         <div class="timeline-date">2024 - 2025</div>
-                        <h3>Baccalauréat</h3>
-                        <p>Saint Joseph Nice</p>
-                        <p>Obtention du baccalauréat avec spécialisation en création multimédia.</p>
+                        <h3>BTS SIO - Option SISR</h3>
+                        <p>Lycée Saint Joseph, Nice</p>
+                        <p>Formation en administration des systèmes, réseaux et sécurité.</p>
                     </div>
-                </div>
-                <div class="timeline-item right">
                     <div class="timeline-content">
                         <div class="timeline-date">2021 - 2022</div>
                         <h3>Brevet des collèges</h3>
@@ -1420,45 +642,14 @@
                 <div class="col-lg-4">
                     <div class="contact-info">
                         <h3 class="mb-4">Mes coordonnées</h3>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Adresse</h4>
-                                <p>Nice, France</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Téléphone</h4>
-                                <p>07 83 02 16 47</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>Yanis.secours26@gmail.com</p>
-                            </div>
-                        </div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text"><h4>Adresse</h4><p>Nice, France</p></div></div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-text"><h4>Téléphone</h4><p>07 83 02 16 47</p></div></div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email</h4><p>Yanis.secours26@gmail.com</p></div></div>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <form class="contact-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Votre nom" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Votre email" required>
-                            </div>
-                        </div>
+                        <div class="row"><div class="col-md-6"><input type="text" class="form-control" placeholder="Votre nom" required></div><div class="col-md-6"><input type="email" class="form-control" placeholder="Votre email" required></div></div>
                         <input type="text" class="form-control" placeholder="Sujet" required>
                         <textarea class="form-control" placeholder="Votre message" required></textarea>
                         <button type="submit" class="btn btn-send">Envoyer le message</button>
@@ -1477,117 +668,18 @@
                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-github"></i></a>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Yanis Mosbah. Tous droits réservés.</p>
-            </div>
+            <div class="copyright"><p>&copy; 2024 Yanis Mosbah. Tous droits réservés.</p></div>
         </div>
     </footer>
 
-    <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Active navigation link on scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // CV Download
         document.getElementById('downloadCV').addEventListener('click', function() {
-            // Créer un lien de téléchargement
-            const link = document.createElement('a');
-            link.href = '#';
-            link.download = 'CV_Yanis_Mosbah.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Message de confirmation
-            alert('Votre CV va être téléchargé. Si le téléchargement ne commence pas automatiquement, vérrez votre dossier de téléchargements.');
+            alert('Téléchargement du CV - Version papier disponible sur demande.');
         });
-        
-        // Animation des barres de compétences
-        function animateSkills() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 300);
-            });
-        }
-        
-        // Observer pour l'animation des compétences
-        const skillsSection = document.getElementById('skills');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkills();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(skillsSection);
-        
-        // Animation générale au défilement
-        window.addEventListener('scroll', function() {
-            const elements = document.querySelectorAll('.timeline-content, .project-item, .language-item');
-            
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (position < screenPosition) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        });
-        
-        // Initialiser les styles pour l'animation
-        document.querySelectorAll('.timeline-content, .project-item, .language-item').forEach(element => {
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
-        });
-        
-        // Animation au chargement initial
-        window.addEventListener('load', function() {
-            const heroContent = document.querySelector('.hero-content');
-            heroContent.style.transform = 'translateY(0)';
-            heroContent.style.opacity = 1;
-        });
-        
-        // Initialiser les styles pour l'animation du hero
-        document.querySelector('.hero-content').style.transition = 'opacity 1s ease, transform 1s ease';
-        document.querySelector('.hero-content').style.transform = 'translateY(30px)';
-        document.querySelector('.hero-content').style.opacity = 0;
     </script>
 </body>
-
 </html>
-
-
 
 
 
